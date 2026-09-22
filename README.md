@@ -6,7 +6,7 @@ This project demonstrates strict end-to-end TypeScript architecture across every
 
 ---
 
-## 🛠 Tech Stack & Architecture
+## Tech Stack & Architecture
 
 - **Core:** [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [Vite](https://vitejs.dev/)
 - **Routing:** [React Router](https://reactrouter.com/) (strictly typed route params)
