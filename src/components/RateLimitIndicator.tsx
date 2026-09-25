@@ -11,11 +11,11 @@ export function RateLimitIndicator({ rateLimit }: RateLimitIndicatorProps): Reac
 
   let colorClass: string;
   if (remaining <= 5) {
-    colorClass = 'bg-red-500/20 text-red-400 border-red-500/30';
+    colorClass = 'bg-red-500/20 text-red-500 border-red-500/30 dark:text-red-400';
   } else if (remaining <= 15) {
-    colorClass = 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+    colorClass = 'bg-amber-500/20 text-amber-600 border-amber-500/30 dark:text-amber-400';
   } else {
-    colorClass = 'bg-teal-500/15 text-teal-400 border-teal-500/20';
+    colorClass = 'bg-teal-500/10 text-teal-600 border-teal-500/20 dark:bg-teal-500/15 dark:text-teal-400';
   }
 
   return (
