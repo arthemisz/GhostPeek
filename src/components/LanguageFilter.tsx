@@ -19,8 +19,8 @@ export function LanguageFilter({
         onClick={() => onSelect(null)}
         className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
           selected === null
-            ? 'bg-teal-500/20 text-teal-400 border border-teal-500/30'
-            : 'border border-gray-700/40 text-gray-400 hover:border-gray-600 hover:text-gray-300'
+            ? 'bg-teal-500/15 text-teal-600 border border-teal-500/30 dark:text-teal-400'
+            : 'border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:border-gray-700/40 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-300'
         }`}
       >
         All
@@ -31,8 +31,8 @@ export function LanguageFilter({
           onClick={() => onSelect(lang)}
           className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
             selected === lang
-              ? 'bg-teal-500/20 text-teal-400 border border-teal-500/30'
-              : 'border border-gray-700/40 text-gray-400 hover:border-gray-600 hover:text-gray-300'
+              ? 'bg-teal-500/15 text-teal-600 border border-teal-500/30 dark:text-teal-400'
+              : 'border border-gray-200 text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:border-gray-700/40 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-300'
           }`}
         >
           {lang}
