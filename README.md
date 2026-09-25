@@ -12,7 +12,7 @@ This project demonstrates strict end-to-end TypeScript architecture across every
 - **Routing:** [React Router](https://reactrouter.com/) (strictly typed route params)
 - **Linting & Code Quality:** [Oxlint](https://oxc.rs/) with type-aware analysis
 - **Data Source:** [GitHub REST API v3](https://docs.github.com/en/rest) (Public endpoints, no API key required)
-- Link: ghostpeek.vercel.app
+- Link: **ghostpeek.vercel.app
 
 ## 📁 Project Structure
 
