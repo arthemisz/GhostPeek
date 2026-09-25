@@ -52,7 +52,7 @@ export function UserProfile(): ReactElement {
       <main className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
         <Loader2
           size={28}
-          className="animate-spin text-teal-400"
+          className="animate-spin text-teal-600 dark:text-teal-400"
           aria-label="Loading profile"
         />
       </main>
@@ -63,7 +63,7 @@ export function UserProfile(): ReactElement {
     return (
       <main className="flex min-h-[calc(100vh-3.5rem)] items-start justify-center px-4 pt-[20vh]">
         <div className="text-center">
-          <p className="mb-2 text-sm text-red-400">{userError}</p>
+          <p className="mb-2 text-sm text-red-500 dark:text-red-400">{userError}</p>
           <button
             onClick={() => {
               if (username !== undefined) {
@@ -71,7 +71,7 @@ export function UserProfile(): ReactElement {
                 fetchRepos(username);
               }
             }}
-            className="text-sm text-teal-400 transition-colors hover:text-teal-300"
+            className="text-sm text-teal-600 transition-colors hover:text-teal-500 dark:text-teal-400 dark:hover:text-teal-300"
           >
             Try again
           </button>
@@ -92,7 +92,7 @@ export function UserProfile(): ReactElement {
       </div>
 
       {/* Profile card */}
-      <header className="mb-8 rounded-xl border border-gray-800/50 bg-gray-900/30 p-6">
+      <header className="mb-8 rounded-xl border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-800/50 dark:bg-gray-900/30">
         <UserCard user={user} />
       </header>
 
