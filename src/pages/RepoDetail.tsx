@@ -99,7 +99,7 @@ export function RepoDetail(): ReactElement {
       <main className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center">
         <Loader2
           size={28}
-          className="animate-spin text-teal-400"
+          className="animate-spin text-teal-600 dark:text-teal-400"
           aria-label="Loading repository"
         />
       </main>
@@ -109,7 +109,7 @@ export function RepoDetail(): ReactElement {
   if (error !== null) {
     return (
       <main className="flex min-h-[calc(100vh-3.5rem)] items-start justify-center px-4 pt-[20vh]">
-        <p className="text-sm text-red-400">{error}</p>
+        <p className="text-sm text-red-500 dark:text-red-400">{error}</p>
       </main>
     );
   }
@@ -120,7 +120,7 @@ export function RepoDetail(): ReactElement {
       <div className="mb-6 flex items-center justify-between">
         <Link
           to={`/user/${username ?? ''}`}
-          className="inline-flex items-center gap-1.5 text-sm text-gray-400 transition-colors hover:text-teal-400"
+          className="inline-flex items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-teal-600 dark:text-gray-400 dark:hover:text-teal-400"
         >
           <ArrowLeft size={14} aria-hidden="true" />
           Back to profile
@@ -131,7 +131,7 @@ export function RepoDetail(): ReactElement {
             href={repoMeta.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md border border-gray-700/60 bg-gray-800/60 px-3 py-1.5 text-xs font-medium text-gray-300 transition-colors hover:border-teal-500/40 hover:text-teal-400"
+            className="inline-flex items-center gap-1.5 rounded-md border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 transition-colors hover:border-teal-500/40 hover:text-teal-600 dark:border-gray-700/60 dark:bg-gray-800/60 dark:text-gray-300 dark:hover:text-teal-400"
           >
             Open on GitHub
             <ExternalLink size={12} aria-hidden="true" />
@@ -141,15 +141,15 @@ export function RepoDetail(): ReactElement {
 
       {/* Repo header */}
       {repoMeta !== null && (
-        <header className="mb-6 rounded-lg border border-gray-800/50 bg-gray-900/30 p-5">
-          <h1 className="mb-1 text-lg font-semibold text-gray-100">
-            <span className="text-gray-500">{username}/</span>
+        <header className="mb-6 rounded-lg border border-gray-200 bg-gray-50/50 p-5 dark:border-gray-800/50 dark:bg-gray-900/30">
+          <h1 className="mb-1 text-lg font-semibold text-gray-900 dark:text-gray-100">
+            <span className="text-gray-400 dark:text-gray-500">{username}/</span>
             {repoMeta.name}
           </h1>
           {repoMeta.description !== null && (
-            <p className="mb-3 text-sm text-gray-400">{repoMeta.description}</p>
+            <p className="mb-3 text-sm text-gray-500 dark:text-gray-400">{repoMeta.description}</p>
           )}
-          <div className="flex items-center gap-4 text-xs text-gray-500">
+          <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500">
             <span className="flex items-center gap-1">
               <Star size={13} aria-hidden="true" />
               {repoMeta.stargazers_count.toLocaleString()}
@@ -163,7 +163,7 @@ export function RepoDetail(): ReactElement {
               {repoMeta.watchers_count.toLocaleString()}
             </span>
             {repoMeta.language !== null && (
-              <span className="text-gray-400">{repoMeta.language}</span>
+              <span className="text-gray-500 dark:text-gray-400">{repoMeta.language}</span>
             )}
           </div>
         </header>
@@ -171,13 +171,13 @@ export function RepoDetail(): ReactElement {
 
       {/* README */}
       {readme !== null ? (
-        <article className="prose-gh rounded-lg border border-gray-800/50 bg-gray-900/30 p-6">
+        <article className="prose-gh rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800/50 dark:bg-gray-900/30">
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
             {readme}
           </ReactMarkdown>
         </article>
       ) : (
-        <div className="flex flex-col items-center py-12 text-gray-500">
+        <div className="flex flex-col items-center py-12 text-gray-400 dark:text-gray-500">
           <FileWarning size={28} className="mb-3" aria-hidden="true" />
           <p className="text-sm">This repository doesn't have a README</p>
         </div>
