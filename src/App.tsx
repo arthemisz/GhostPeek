@@ -7,6 +7,7 @@ import { RepoDetail } from './pages/RepoDetail';
 import { NotFound } from './pages/NotFound';
 import type { RateLimitState } from './types/github';
 import { setRateLimitCallback } from './hooks/useGitHubUser';
+import { ThemeContext, useThemeProvider } from './hooks/useTheme';
 
 export default function App(): ReactElement {
   const [rateLimit, setRateLimit] = useState<RateLimitState>({
@@ -18,17 +19,21 @@ export default function App(): ReactElement {
   // Wire up the global rate limit callback
   setRateLimitCallback(setRateLimit);
 
+  const themeValue = useThemeProvider();
+
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-[#0d1117] text-gray-100">
-        <Navbar rateLimit={rateLimit} />
-        <Routes>
-          <Route path="/" element={<SearchPage />} />
-          <Route path="/user/:username" element={<UserProfile />} />
-          <Route path="/user/:username/repo/:repo" element={<RepoDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ThemeContext.Provider value={themeValue}>
+      <BrowserRouter>
+        <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-gray-100 transition-colors">
+          <Navbar rateLimit={rateLimit} />
+          <Routes>
+            <Route path="/" element={<SearchPage />} />
+            <Route path="/user/:username" element={<UserProfile />} />
+            <Route path="/user/:username/repo/:repo" element={<RepoDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
