@@ -54,24 +54,24 @@ function formatRelativeDate(isoDate: string): string {
 
 export function RepoCard({ repo, username }: RepoCardProps): ReactElement {
   return (
-    <article className="group rounded-lg border border-gray-800/60 bg-gray-900/40 p-4 transition-colors hover:border-gray-700/80 hover:bg-gray-900/60">
+    <article className="group rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-gray-800/60 dark:bg-gray-900/40 dark:hover:border-gray-700/80 dark:hover:bg-gray-900/60">
       <div className="mb-2 flex items-start justify-between gap-2">
         <Link
           to={`/user/${username}/repo/${repo.name}`}
-          className="text-sm font-medium text-teal-400 transition-colors group-hover:text-teal-300"
+          className="text-sm font-medium text-teal-600 transition-colors group-hover:text-teal-500 dark:text-teal-400 dark:group-hover:text-teal-300"
         >
           {repo.name}
         </Link>
 
         {repo.fork && (
-          <span className="shrink-0 rounded border border-gray-700/40 px-1.5 py-0.5 text-[10px] text-gray-500">
+          <span className="shrink-0 rounded border border-gray-200 px-1.5 py-0.5 text-[10px] text-gray-400 dark:border-gray-700/40 dark:text-gray-500">
             fork
           </span>
         )}
       </div>
 
       {repo.description !== null && (
-        <p className="mb-3 line-clamp-2 text-xs leading-relaxed text-gray-400">
+        <p className="mb-3 line-clamp-2 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
           {repo.description}
         </p>
       )}
@@ -81,7 +81,7 @@ export function RepoCard({ repo, username }: RepoCardProps): ReactElement {
           {repo.topics.slice(0, 5).map((topic) => (
             <span
               key={topic}
-              className="rounded-full bg-teal-500/10 px-2 py-0.5 text-[10px] text-teal-400"
+              className="rounded-full bg-teal-500/10 px-2 py-0.5 text-[10px] text-teal-600 dark:text-teal-400"
             >
               {topic}
             </span>
@@ -89,7 +89,7 @@ export function RepoCard({ repo, username }: RepoCardProps): ReactElement {
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
+      <div className="flex flex-wrap items-center gap-3 text-xs text-gray-400 dark:text-gray-500">
         {repo.language !== null && (
           <span className="flex items-center gap-1">
             <Circle
