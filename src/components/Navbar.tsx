@@ -2,6 +2,7 @@ import { type ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { Ghost } from 'lucide-react';
 import { RateLimitIndicator } from './RateLimitIndicator';
+import { ThemeToggle } from './ThemeToggle';
 import type { RateLimitState } from '../types/github';
 
 interface NavbarProps {
@@ -25,25 +26,26 @@ function GitHubMark(): ReactElement {
 export function Navbar({ rateLimit }: NavbarProps): ReactElement {
   return (
     <nav
-      className="sticky top-0 z-50 border-b border-gray-800/60 bg-[#0d1117]/95 backdrop-blur-sm"
+      className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm dark:border-gray-800/60 dark:bg-black/95 transition-colors"
       aria-label="Primary navigation"
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         <Link
           to="/"
-          className="flex items-center gap-2 text-gray-100 transition-colors hover:text-teal-400"
+          className="flex items-center gap-2 text-gray-900 transition-colors hover:text-teal-600 dark:text-gray-100 dark:hover:text-teal-400"
         >
-          <Ghost size={22} aria-hidden="true" />
+          <Ghost size={22} className="text-gray-900 dark:text-white" aria-hidden="true" />
           <span className="text-base font-semibold tracking-tight">GhostPeek</span>
         </Link>
 
         <div className="flex items-center gap-3">
           <RateLimitIndicator rateLimit={rateLimit} />
+          <ThemeToggle />
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md p-1.5 text-gray-400 transition-colors hover:bg-gray-800 hover:text-gray-200"
+            className="rounded-md p-1.5 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
             aria-label="Open GitHub"
           >
             <GitHubMark />
