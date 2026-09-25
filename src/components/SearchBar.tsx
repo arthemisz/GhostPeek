@@ -39,7 +39,7 @@ export function SearchBar({
       <div className="relative">
         <Search
           size={isLarge ? 20 : 16}
-          className={`absolute top-1/2 -translate-y-1/2 text-gray-500 ${isLarge ? 'left-4' : 'left-3'}`}
+          className={`absolute top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 ${isLarge ? 'left-4' : 'left-3'}`}
           aria-hidden="true"
         />
         <input
@@ -50,10 +50,10 @@ export function SearchBar({
           autoFocus={autoFocus}
           aria-label="Search GitHub users"
           aria-invalid={isEmpty}
-          className={`w-full rounded-lg border bg-gray-900/50 text-gray-100 placeholder-gray-500 transition-colors focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500/40 ${
+          className={`w-full rounded-lg border bg-gray-50 text-gray-900 placeholder-gray-400 transition-colors focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500/40 dark:bg-gray-900/50 dark:text-gray-100 dark:placeholder-gray-500 ${
             isEmpty
               ? 'border-red-500/60'
-              : 'border-gray-700/60'
+              : 'border-gray-300 dark:border-gray-700/60'
           } ${
             isLarge
               ? 'py-3.5 pl-12 pr-4 text-lg'
